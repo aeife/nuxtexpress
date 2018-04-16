@@ -1,0 +1,59 @@
+{
+  "name": "nuxtexpress",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "André Eife <andre.eife@gmail.com>",
+  "private": true,
+  "scripts": {
+    "client": "cross-env NODE_ENV=separate nuxt",
+    "server": "cross-env NODE_ENV=separate backpack dev",
+    "dev": "backpack dev",
+    "build": "nuxt build && backpack build",
+    "start": "cross-env NODE_ENV=production node build/main.js",
+    "precommit": "npm run lint",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "deploy": "now -p && now alias && now remove vue-app --safe --yes"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "babel-cli": "^6.26.0",
+    "bcrypt-nodejs": "0.0.3",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "cross-env": "^5.0.1",
+    "dotenv": "^5.0.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "express": "^4.15.3",
+    "express-session": "^1.15.6",
+    "http-proxy-middleware": "^0.18.0",
+    "mongoose": "^5.0.14",
+    "nuxt": "^1.0.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "source-map-support": "^0.4.15"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "backpack-core": "^0.4.1",
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^3.1.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.4.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7"
+  },
+  "now": {
+    "name": "vue-app",
+    "alias": "vue-app-localdevenv",
+    "env": {
+      "NODE_ENV": "production",
+      "MONGODB_LOCATION": "@mongodb_location",
+      "DB": "@db"
+    }
+  }
+}
