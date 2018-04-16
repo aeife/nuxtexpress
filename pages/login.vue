@@ -1,22 +1,23 @@
 <template>
-  <section class="container">
-    <h1 class="title">
-      Login
-    </h1>
-    <input type="email" v-model="email">
-    <input type="password" v-model="password">
-    <button @click="login">Login</button>
-    <nuxt-link to="/profile">
-        Profile
-    </nuxt-link>
-    <nuxt-link to="/signup">
-        signup
-    </nuxt-link>
-  </section>
+    <section class="container">
+        <h1 class="title">
+            Login
+        </h1>
+        <input type="email" v-model="email">
+        <input type="password" v-model="password">
+        <button @click="login">Login</button>
+        <nuxt-link to="/profile">
+            Profile
+        </nuxt-link>
+        <nuxt-link to="/signup">
+            signup
+        </nuxt-link>
+    </section>
 </template>
 
 <script>
 export default {
+    // middleware: 'unauth',
     data () {
         return {
             email: null,
@@ -30,10 +31,15 @@ export default {
     },
     methods: {
         async login () {
-            const login = await this.$store.dispatch('user/login', {email: this.email, password: this.password});
-            if (login) {
-                this.$router.replace({ path: 'profile' });
+            try {
+                this.loading = true;
+                await this.$auth.login({
+                    data: {email: this.email, password: this.password}
+                });
+            } catch (error) {
+                console.log('login error', error);
             }
+            this.loading = false;
         }
     }
 };

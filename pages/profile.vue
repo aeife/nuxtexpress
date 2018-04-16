@@ -1,22 +1,18 @@
 <template>
-  <section class="container">
-    <h1 class="title">
-      Profile
-    </h1>
-    <p>Email: {{user.email}}</p>
-    <button @click="logout">Logout</button>
-  </section>
+    <section class="container">
+        <h1 class="title">
+            Profile
+        </h1>
+        <p>Email: {{user.email}}</p>
+        <button @click="logout">Logout</button>
+    </section>
 </template>
 
 <script>
-import axios from '~/plugins/axios';
-
 export default {
     middleware: 'auth',
-    async asyncData () {
-        let {data} = await axios.get('/api/v1/userdata');
-        console.log('user', data);
-        return { user: data };
+    async asyncData ({app}) {
+        return { user: await app.$axios.$get('/api/v1/userdata') };
     },
     head () {
         return {
@@ -25,8 +21,7 @@ export default {
     },
     methods: {
         async logout () {
-            await this.$store.dispatch('user/logout');
-            this.$router.replace({ path: 'login' });
+            await this.$auth.logout();
         }
     }
 };

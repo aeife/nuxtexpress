@@ -1,18 +1,18 @@
 <template>
-  <section class="container">
-    <h1 class="title">
-      Signup
-    </h1>
-    <input type="email" v-model="email">
-    <input type="password" v-model="password">
-    <button @click="signup">Signup</button>
-    <nuxt-link to="/login">
-        Login
-    </nuxt-link>
-    <nuxt-link to="/profile">
-        Profile
-    </nuxt-link>
-  </section>
+    <section class="container">
+        <h1 class="title">
+            Signup
+        </h1>
+        <input type="email" v-model="email">
+        <input type="password" v-model="password">
+        <button @click="signup">Signup</button>
+        <nuxt-link to="/login">
+            Login
+        </nuxt-link>
+        <nuxt-link to="/profile">
+            Profile
+        </nuxt-link>
+    </section>
 </template>
 
 <script>
@@ -30,9 +30,11 @@ export default {
     },
     methods: {
         async signup () {
-            const signup = await this.$store.dispatch('signup', {email: this.email, password: this.password});
-            if (signup) {
-                this.$router.replace({ path: 'profile' });
+            try {
+                await this.$axios.$post('/api/v1/signup', {email: this.email, password: this.password});
+                await this.$auth.fetchUser();
+            } catch (error) {
+                console.log('login error', error);
             }
         }
     }

@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <nuxt-link to="/">
-        <img src="~assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
-    </nuxt-link>
-    <nuxt/>
-    <my-footer/>
-  </div>
+    <div>
+        <nuxt-link to="/">
+            <img src="~assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
+        </nuxt-link>
+        <nuxt/>
+        <my-footer/>
+    </div>
 </template>
 
 <script>

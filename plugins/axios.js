@@ -1,9 +1,10 @@
-import * as axios from 'axios';
+export default function ({ $axios, redirect }) {
+    $axios.onRequest(config => {
+        console.log('Making request to ' + config.url);
+    });
 
-let options = {};
-// The server-side needs a full url to works
-if (process.server) {
-    options.baseURL = `http://${process.env.HOST || 'localhost'}:${process.env.PORT || 3000}`;
+    $axios.onError(error => {
+        const code = parseInt(error.response && error.response.status);
+        console.log('axios error', code);
+    });
 }
-
-export default axios.create(options);

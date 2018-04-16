@@ -10,6 +10,6 @@ export const mutations = {
 
 export const actions = {
     nuxtServerInit ({ dispatch }, { req }) {
-        dispatch('user/load', {req});
+        // dispatch('user/load', {req});
     }
 };

@@ -36,8 +36,21 @@ module.exports = {
             }
         }
     },
-    router: {
-        middleware: ['ssr-cookies']
+    modules: [
+        '@nuxtjs/axios',
+        '@nuxtjs/auth'
+    ],
+    auth: {
+        strategies: {
+            local: {
+                endpoints: {
+                    login: { url: '/api/v1/login', method: 'post', propertyName: false },
+                    logout: { url: '/api/v1/logout', method: 'post' },
+                    user: { url: '/api/v1/userdata', method: 'get', propertyName: false }
+                },
+                tokenRequired: false
+            }
+        }
     },
     serverMiddleware: middlewares
 };

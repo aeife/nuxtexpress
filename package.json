@@ -15,6 +15,8 @@
     "deploy": "now -p && now alias && now remove vue-app --safe --yes"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.1.0",
+    "@nuxtjs/axios": "^5.3.1",
     "axios": "^0.16.2",
     "babel-cli": "^6.26.0",
     "bcrypt-nodejs": "0.0.3",

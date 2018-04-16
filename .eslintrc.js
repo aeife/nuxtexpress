@@ -15,7 +15,8 @@ module.exports = {
   // add your custom rules here
   rules: {
     'semi': ['warn', 'always'],
-    'indent': ['warn', 4]
+    'indent': ['warn', 4],
+    "vue/html-indent": ["warn", 4]
   },
   globals: {}
 }

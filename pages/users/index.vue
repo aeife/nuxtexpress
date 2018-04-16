@@ -1,16 +1,16 @@
 <template>
-  <section class="container">
-    <h1 class="title">
-      Posts
-    </h1>
-    <ul class="users">
-      <li v-for="(post, index) in posts" :key="index" class="user">
-        <nuxt-link :to="{ name: 'users-id', params: { id: index }}">
-          {{ post.title }}
-        </nuxt-link>
-      </li>
-    </ul>
-  </section>
+    <section class="container">
+        <h1 class="title">
+            Posts
+        </h1>
+        <ul class="users">
+            <li v-for="(post, index) in posts" :key="index" class="user">
+                <nuxt-link :to="{ name: 'users-id', params: { id: index }}">
+                    {{ post.title }}
+                </nuxt-link>
+            </li>
+        </ul>
+    </section>
 </template>
 
 <script>
