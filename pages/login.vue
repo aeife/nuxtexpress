@@ -1,16 +1,46 @@
 <template>
-    <section class="container">
-        <h1 class="title">
-            Login
-        </h1>
-        <input type="email" v-model="email">
-        <input type="password" v-model="password">
-        <button @click="login">Login</button>
+    <section class="section">
+        <div class="columns is-centered">
+            <div class="column is-half-tablet is-one-quarter-desktop">
+                <h1 class="title">
+                    Login <font-awesome-icon icon="plus" />
+                </h1>
+                <form v-on:submit.prevent="login">
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input" type="email" placeholder="Email" v-model="email">
+                            <span class="icon is-small is-left">
+                                <font-awesome-icon icon="user" />
+                            </span>
+                            <span class="icon is-small is-right">
+                                <i class="fas fa-check"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input" type="password" placeholder="Password" v-model="password">
+                            <span class="icon is-small is-left">
+                                <font-awesome-icon icon="lock" />
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <button class="button is-success" @click="login" :class="{'is-loading': loading}">
+                                Login
+                            </button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <nuxt-link to="/profile">
             Profile
         </nuxt-link>
         <nuxt-link to="/signup">
-            signup
+            SignUp
         </nuxt-link>
     </section>
 </template>
@@ -21,7 +51,8 @@ export default {
     data () {
         return {
             email: null,
-            password: null
+            password: null,
+            loading: false
         };
     },
     head () {

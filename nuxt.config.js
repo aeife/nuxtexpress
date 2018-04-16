@@ -19,7 +19,10 @@ module.exports = {
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
         ]
     },
-    css: ['~/assets/css/main.scss'],
+    css: [
+        '@fortawesome/fontawesome/styles.css',
+        '~/assets/css/main.scss'
+    ],
     build: {
         vendor: ['axios'],
         /*
@@ -33,6 +36,13 @@ module.exports = {
                     loader: 'eslint-loader',
                     exclude: /(node_modules)/
                 });
+            }
+        },
+        postcss: {
+            plugins: {
+                'postcss-custom-properties': {
+                    warnings: false
+                }
             }
         }
     },
@@ -52,5 +62,9 @@ module.exports = {
             }
         }
     },
+    plugins: [
+        '~/plugins/axios',
+        '~/plugins/font-awesome'
+    ],
     serverMiddleware: middlewares
 };

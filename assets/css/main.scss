@@ -1,26 +1,5 @@
+@import "./bulma_customized.scss";
 @import "./assets/css/vars.scss";
-
-html, body
-{
-  background-color: $bg;
-  color: #000;
-  letter-spacing: 0.5px;
-  font-family: "Source Sans Pro", Arial, sans-serif;
-  height: 100vh;
-  margin: 0;
-}
-
-footer
-{
-  padding: 20px;
-  text-align: center;
-  border-top: 1px solid #ddd;
-}
-
-a, a:hover, a:focus, a:visited
-{
-  color: #000;
-}
 
 .logo {
   width: 100%;

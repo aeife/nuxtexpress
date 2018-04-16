@@ -15,11 +15,16 @@
     "deploy": "now -p && now alias && now remove vue-app --safe --yes"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/fontawesome-free-brands": "^5.0.10",
+    "@fortawesome/fontawesome-free-solid": "^5.0.10",
+    "@fortawesome/vue-fontawesome": "0.0.22",
     "@nuxtjs/auth": "^4.1.0",
     "@nuxtjs/axios": "^5.3.1",
     "axios": "^0.16.2",
     "babel-cli": "^6.26.0",
     "bcrypt-nodejs": "0.0.3",
+    "bulma": "^0.7.0",
     "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
     "cross-env": "^5.0.1",
